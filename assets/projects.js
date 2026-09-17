@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let progressBarDiv = document.getElementsByClassName("progressBar")[0]
 
     headerleftContent.addEventListener("click", () => {
-        window.location.href = "../index.html"
+        window.location.href = "index.html"
     })
 
     let headerRightContent = document.getElementsByClassName("hi_contentRight")
@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     for(let i = 0; i < headerRightContent.length; i++){
         if(i == 0){
             headerRightContent[i].addEventListener("click", () => {
-                window.location.href = "../projects.html"
+                window.location.href = "projects.html"
             })
         }else if(i == 1){
              headerRightContent[i].addEventListener("click", () => {
-                window.location.href = "../skills.html"
+                window.location.href = "skills.html"
             })
         }else{
             headerRightContent[i].addEventListener("click", () => {
