@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     headerleftContent.addEventListener("click", () => {
-        window.location.href = "../index.html"
+        window.location.href = "index.html"
     })
 
     let headerRightContent = document.getElementsByClassName("hi_contentRight")
@@ -33,11 +33,11 @@ document.addEventListener("DOMContentLoaded", () => {
     for(let i = 0; i < headerRightContent.length; i++){
         if(i == 0){
             headerRightContent[i].addEventListener("click", () => {
-                window.location.href = "../projects.html"
+                window.location.href = "projects.html"
             })
         }else if(i == 1){
              headerRightContent[i].addEventListener("click", () => {
-                window.location.href = "../skills.html"
+                window.location.href = "skills.html"
             })
         }else{
             headerRightContent[i].addEventListener("click", () => {
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timestamp.textContent = timeItself;
 
     let progressImage = document.getElementsByClassName("mbrbtp_image")[0];
-        progressImage.style.backgroundImage = "url('../imgs/photo_5249390393491661631_y.jpg')";
+        progressImage.style.backgroundImage = "url('imgs/photo_5249390393491661631_y.jpg')";
 
     let secondImage = false;
 
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     progressImage.addEventListener("mouseenter", () => {
         if(!secondImage){
-            progressImage.style.backgroundImage = "url('../imgs/photo_5249390393491661631_y.jpg')";
+            progressImage.style.backgroundImage = "url('imgs/photo_5249390393491661631_y.jpg')";
             secondImage = !secondImage;
         }else{
-            progressImage.style.backgroundImage = "url('../imgs/photo_5278408528278266453_y.jpg')";
+            progressImage.style.backgroundImage = "url('imgs/photo_5278408528278266453_y.jpg')";
             secondImage = !secondImage;
         }
     })
