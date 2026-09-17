@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timestamp.textContent = timeItself;
 
     let progressImage = document.getElementsByClassName("mbrbtp_image")[0];
-        progressImage.style.backgroundImage = "url('../imgs/photo_5249390393491661631_y.jpg')";
+        progressImage.style.backgroundImage = "url('imgs/photo_5249390393491661631_y.jpg')";
 
     let secondImage = false;
 
@@ -81,10 +81,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     progressImage.addEventListener("mouseenter", () => {
         if(!secondImage){
-            progressImage.style.backgroundImage = "url('../imgs/photo_5249390393491661631_y.jpg')";
+            progressImage.style.backgroundImage = "url('imgs/photo_5249390393491661631_y.jpg')";
             secondImage = !secondImage;
         }else{
-            progressImage.style.backgroundImage = "url('../imgs/photo_5278408528278266453_y.jpg')";
+            progressImage.style.backgroundImage = "url('imgs/photo_5278408528278266453_y.jpg')";
             secondImage = !secondImage;
         }
     })
