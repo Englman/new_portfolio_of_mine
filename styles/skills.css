@@ -1,0 +1,345 @@
+@keyframes permanentBoxShadow {
+    0%{
+        box-shadow: 0px 0px 5px 0px #350980;
+        border: 1px solid #350980;
+    }
+
+    25%{
+        box-shadow: 0px 0px 10px 0px #9a2b2b;
+        border: 1px solid #9a2b2b;
+    }
+
+    50%{
+        box-shadow: 0px 0px 15px 0px #00d4ff;
+        border: 1px solid #00d4ff;
+    }
+
+    75%{
+        box-shadow: 0px 0px 10px 0px #370f0f;
+        border: 1px solid #370f0f;
+    }
+
+    100%{
+        box-shadow: 0px 0px 5px 0px #350980;
+        border: 1px solid #350980;
+    }
+}
+
+@keyframes permanentGradient {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 300% 50%;
+    }
+}
+
+@keyframes wavingBlock {
+    from{
+        transform: translate(-50%, 25%);
+    }
+
+    to{
+        transform: translate(-50%, 20%);
+    }
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:linear-gradient(135deg,#09090F,#111827,#1E1B4B);
+    text-rendering: optimizeLegibility; /* Запрет выделения контента для мод устройств */
+    cursor: default;
+}
+
+.dynamicMessage{
+    visibility: hidden;
+    position: fixed;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.588);
+    background-color: rgba(255, 255, 255, .08);
+    width: 250px;
+    height: 125px;
+    border-radius: 15px;
+    transform: translate(-50%, -100%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    transition: all 0.5s cubic-bezier(0.65, 0, 0.06, 1.06);
+    z-index: 999;
+}
+
+.dynamicMessage.opened{
+    visibility: visible;
+    transform: translate(-50%, 20%);
+}
+
+.dynamicMessage.waving{
+    animation: wavingBlock 0.3s ease-in-out infinite alternate-reverse;
+}
+
+.dynamicMessage span{
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.dynamicMessage .progressBar{
+    background-color: #15e7e7;
+    height: 4px;
+    width: 100%;
+    border-radius: 50px;
+    background-position: center;
+    transition: all 3.2s;
+}
+
+#header{
+    width: 70%;
+    height: 90px;
+    background-color: none;
+    margin: auto;
+    padding: 16px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.h_innerBlock{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hi_blockLeft, .hi_blockRight{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.hi_contentLeft{
+    font-size: 1.5em;
+    position: relative;
+    text-decoration: none;
+    background: linear-gradient(90deg,rgba(0, 47, 235, 1) 0%, rgba(224, 224, 224, 1) 66%);
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hi_blockRight{
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.hi_blockRight a{
+    color: deepskyblue;
+}
+
+.hi_contentRight{
+    font-size: 1.2em;
+    position: relative;
+    text-decoration: none;
+    color: deepskyblue;
+    background-clip: text;
+    opacity: 0.8;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 1s;
+}
+
+.hi_contentRight::before{
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    overflow: hidden;
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 66%);
+    background-clip: text;
+    white-space: nowrap;
+    transition: width 0.5s ease-out;
+    color: white;
+}
+
+.hi_contentRight:hover::before{
+    width: 100%;
+}
+
+.hi_contentRight:nth-child(2)::before{
+    width: 100%;
+}
+
+.hi_contentRight::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: #020024;
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, #00d4ff 66%);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.hi_contentRight:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hi_contentRight:nth-child(2)::after{
+    transform: scaleX(1);
+}
+
+main{
+    margin: auto;
+    width: 70%;
+    min-height: 1200px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+}
+
+.m_top{
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+}
+
+.m_top h1{
+    font-size: 1.5em;
+    background:linear-gradient(90deg,#38BDF8,#8B5CF6,#EC4899);
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.m_top span{
+    color: white;
+    opacity: 0.8;
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+}
+
+.pb_button{
+    border: none;
+    width: 180px;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.active{
+    background-color: #00aed0;
+    font-weight: bold;
+    transform: scale(1);
+    transition: all 0.2s ease-out;
+}
+.active:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 0px #00aed0;
+}
+
+.m_bottom{
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 25px;
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-radius: 20px;
+    padding: 18px;
+    justify-content: center;
+    align-content: flex-start;
+    animation: permanentBoxShadow 12s cubic-bezier(0.76, 0.14, 0.39, 1.13) infinite;
+}
+
+.mb_skillBlock{
+    background-color: #1A153D;
+    width: 200px;
+    height: 120px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.mb_skillBlock img{
+    width: 65px;
+    height: 65px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.mb_skillBlock span{
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+
+footer{
+    width: 70%;
+    margin: auto;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer span{
+    font-size: 0.9em;
+    color: white;
+    opacity: 0.8;
+}
+
+#timeStamp{
+    font-size: 1.1em;
+    background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1),
+        rgba(0, 212, 255, 1)
+    );
+
+    background-size: 300% 100%;
+    background-clip: text;
+    color: transparent;
+
+    animation: permanentGradient 6s linear infinite;
+}
